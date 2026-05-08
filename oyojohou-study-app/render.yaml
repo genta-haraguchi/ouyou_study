@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: oyojohou-backend
+    runtime: python310
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: cd backend && gunicorn app:app
+    envVars:
+      - key: OPENAI_API_KEY
+        scope: run
+        value: # デプロイ時に Render コンソールで設定
